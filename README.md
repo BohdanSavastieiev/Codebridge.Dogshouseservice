@@ -9,7 +9,17 @@ A RESTful API for managing dogs data, built with Clean Architecture principles a
 - MS SQL Server
 - EF Core
 - Docker (for running integration tests)
-- Add your database connection string to `appsettings.json`
+
+### Running the Project
+1. Clone the repository
+2. Add connection string with **YOUR** credentials to `appsettings.json`:
+  ```json
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=YOUR_SERVER;Database=DogsHouseDB;User Id=YOUR_USERNAME;Password=YOUR_PASSWORD;TrustServerCertificate=True"
+  }
+```
+3. Run the app using http or https profile (migrations applied and data seeded automatically)
+
 
 ## API Endpoints
 
@@ -60,7 +70,6 @@ done
 - Global exception handling
 - FluentValidation across layers
 - Result pattern for flow control
-- Migrations applied and data seeded automatically for simplicity
 
 ## Testing
 
