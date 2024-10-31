@@ -24,10 +24,8 @@ A RESTful API for managing dogs data, built with Clean Architecture principles a
 ## API Endpoints
 
 ### `GET /ping`
-Returns service version
 
 ### `GET /dogs/{name}`
-Get specific dog
 
 ### `GET /dogs`
 
@@ -44,7 +42,6 @@ Notes:
 - By default paginated to page 1, size 10
 
 ### `POST /dogs`
-Create new dog
 
 ## Implementation Considerations
 
