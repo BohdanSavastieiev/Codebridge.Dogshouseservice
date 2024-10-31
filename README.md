@@ -36,7 +36,7 @@ Optional parameters:
 - `order` - Sort order (`asc`/`desc`)
 
 Notes:
-- API does not allow providing Sort order without sort field.
+- For sorting API does not allow providing 'order' without 'attribute'.
 - Pagination metadata is included in response headers.
 - By default sorted by 'name' in ascending order
 - By default paginated to page 1, size 10
@@ -46,10 +46,10 @@ Notes:
 ## Implementation Considerations
 
 ### Technical Task Interpretation
-- Dog name serves as primary key (unique identifier) based on my understanding of requirements. ID would be better, but I tried to not violate the requirements.
+- Dog's 'name' serves as primary key (unique identifier) based on my understanding of requirements. ID would be better since it's a common situation where dogs have different names, but a specific table structure was provided so I tried to not violate the requirements.
 - API follows snake_case for both JSON properties and query attribute values (`tail_length`, not `tailLength`) since such approach was shown in the task.
 - Query parameters use camelCase (`pageSize`, not `page_size`) following URL conventions.
-- API accepts empty sorting parameters, using defaults (being liberal in what we accept).
+- API attempts to follow robustness principle: be conservative in what you do, be liberal in what you accept from others.
 
 ### Rate Limiting
 Default limit: 10 requests/second (configurable in appsettings). Test with:
