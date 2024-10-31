@@ -52,10 +52,18 @@ Notes:
 - API attempts to follow robustness principle: be conservative in what you do, be liberal in what you accept from others.
 
 ### Rate Limiting
-Default limit: 10 requests/second (configurable in appsettings). Test with:
+Default limit: 10 requests/second (configurable in appsettings). You can test it with the following Bash command when API is running with http:
 ```bash
 for i in {1..15}; do
+   echo "Request $i:"
    curl -X GET http://localhost:5243/ping -w "\nHTTP Status: %{http_code}\n"
+done
+```
+When running with https:
+```
+for i in {1..15}; do
+   echo "Request $i:"
+   curl -k -X GET https://localhost:7031/ping -w "\nHTTP Status: %{http_code}\n"
 done
 ```
 
