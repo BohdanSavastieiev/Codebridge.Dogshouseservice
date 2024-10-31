@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{848F9D47-12FE-4950-AD97-E8D11ADE9EF1}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.API", "src\Codebridge.TechnicalTask.API\Codebridge.TechnicalTask.API.csproj", "{DE4053EE-FD79-48D4-AB99-E39A1F884F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.Infrastructure", "src\Codebridge.TechnicalTask.Infrastructure\Codebridge.TechnicalTask.Infrastructure.csproj", "{CD0870AC-24CF-4A3A-A9CF-5660A75595C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.Application", "src\Codebridge.TechnicalTask.Application\Codebridge.TechnicalTask.Application.csproj", "{32394711-B334-4605-AED0-CC8052B00F52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.Domain", "src\Codebridge.TechnicalTask.Domain\Codebridge.TechnicalTask.Domain.csproj", "{F3EFAB82-D209-4A3C-88EB-358C3EDF18D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9320CD1C-4CF5-406B-B1F0-AC24F39FD496}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{536F3754-3F11-4670-B6D7-713A9A4EF8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.Domain.Tests", "tests\Codebridge.TechnicalTask.Domain.Tests\Codebridge.TechnicalTask.Domain.Tests.csproj", "{7263C3E2-42DA-4E53-BACD-31390011AB82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.Application.Tests", "tests\Codebridge.TechnicalTask.Application.Tests\Codebridge.TechnicalTask.Application.Tests.csproj", "{13D17D8A-7B17-4AE1-B519-F47E15B22748}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.API.Tests", "tests\Codebridge.TechnicalTask.API.Tests\Codebridge.TechnicalTask.API.Tests.csproj", "{D8866876-0B03-4411-BEE9-99B3E6B073CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.IntegrationTests", "tests\Codebridge.TechnicalTask.IntegrationTests\Codebridge.TechnicalTask.IntegrationTests.csproj", "{A1E9F71C-4041-4BF9-A6DD-84619DA37845}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE4053EE-FD79-48D4-AB99-E39A1F884F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4053EE-FD79-48D4-AB99-E39A1F884F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4053EE-FD79-48D4-AB99-E39A1F884F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4053EE-FD79-48D4-AB99-E39A1F884F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0870AC-24CF-4A3A-A9CF-5660A75595C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0870AC-24CF-4A3A-A9CF-5660A75595C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0870AC-24CF-4A3A-A9CF-5660A75595C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0870AC-24CF-4A3A-A9CF-5660A75595C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32394711-B334-4605-AED0-CC8052B00F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32394711-B334-4605-AED0-CC8052B00F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32394711-B334-4605-AED0-CC8052B00F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32394711-B334-4605-AED0-CC8052B00F52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EFAB82-D209-4A3C-88EB-358C3EDF18D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EFAB82-D209-4A3C-88EB-358C3EDF18D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EFAB82-D209-4A3C-88EB-358C3EDF18D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EFAB82-D209-4A3C-88EB-358C3EDF18D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7263C3E2-42DA-4E53-BACD-31390011AB82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7263C3E2-42DA-4E53-BACD-31390011AB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7263C3E2-42DA-4E53-BACD-31390011AB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7263C3E2-42DA-4E53-BACD-31390011AB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D17D8A-7B17-4AE1-B519-F47E15B22748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D17D8A-7B17-4AE1-B519-F47E15B22748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D17D8A-7B17-4AE1-B519-F47E15B22748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D17D8A-7B17-4AE1-B519-F47E15B22748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8866876-0B03-4411-BEE9-99B3E6B073CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8866876-0B03-4411-BEE9-99B3E6B073CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8866876-0B03-4411-BEE9-99B3E6B073CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8866876-0B03-4411-BEE9-99B3E6B073CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E9F71C-4041-4BF9-A6DD-84619DA37845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E9F71C-4041-4BF9-A6DD-84619DA37845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E9F71C-4041-4BF9-A6DD-84619DA37845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E9F71C-4041-4BF9-A6DD-84619DA37845}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE4053EE-FD79-48D4-AB99-E39A1F884F09} = {9320CD1C-4CF5-406B-B1F0-AC24F39FD496}
+		{32394711-B334-4605-AED0-CC8052B00F52} = {9320CD1C-4CF5-406B-B1F0-AC24F39FD496}
+		{F3EFAB82-D209-4A3C-88EB-358C3EDF18D2} = {9320CD1C-4CF5-406B-B1F0-AC24F39FD496}
+		{CD0870AC-24CF-4A3A-A9CF-5660A75595C9} = {9320CD1C-4CF5-406B-B1F0-AC24F39FD496}
+		{7263C3E2-42DA-4E53-BACD-31390011AB82} = {536F3754-3F11-4670-B6D7-713A9A4EF8DE}
+		{13D17D8A-7B17-4AE1-B519-F47E15B22748} = {536F3754-3F11-4670-B6D7-713A9A4EF8DE}
+		{D8866876-0B03-4411-BEE9-99B3E6B073CB} = {536F3754-3F11-4670-B6D7-713A9A4EF8DE}
+		{A1E9F71C-4041-4BF9-A6DD-84619DA37845} = {536F3754-3F11-4670-B6D7-713A9A4EF8DE}
+	EndGlobalSection
+EndGlobal

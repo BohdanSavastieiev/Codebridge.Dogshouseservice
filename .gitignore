@@ -1,0 +1,42 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+_ReSharper.*/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+riderModule.iml
+/_ReSharper.Caches/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet Packages
+*.nupkg
+packages/
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Others
+*.log
+*.tmp
+*.temp
+.DS_Store
