@@ -1,10 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{848F9D47-12FE-4950-AD97-E8D11ADE9EF1}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.API", "src\Codebridge.TechnicalTask.API\Codebridge.TechnicalTask.API.csproj", "{DE4053EE-FD79-48D4-AB99-E39A1F884F09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codebridge.TechnicalTask.Infrastructure", "src\Codebridge.TechnicalTask.Infrastructure\Codebridge.TechnicalTask.Infrastructure.csproj", "{CD0870AC-24CF-4A3A-A9CF-5660A75595C9}"
