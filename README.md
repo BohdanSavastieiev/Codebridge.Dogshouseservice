@@ -60,7 +60,7 @@ for i in {1..15}; do
 done
 ```
 When running with https:
-```
+```bash
 for i in {1..15}; do
    echo "Request $i:"
    curl -k -X GET https://localhost:7031/ping -w "\nHTTP Status: %{http_code}\n"
