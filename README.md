@@ -59,7 +59,7 @@ done
 - FluentValidation across layers
 - Result pattern for flow control
 
-Testing
+## Testing
 
 - Unit tests for API, Application, and Domain layers
 - Integration tests using containerized databases
