@@ -6,6 +6,8 @@ A RESTful API for managing dogs data, built with Clean Architecture principles a
 
 ### Prerequisites
 - .NET 8
+- MS SQL Server
+- EF Core
 - Docker (for running integration tests)
 - Add your database connection string to `appsettings.json`
 
@@ -58,6 +60,7 @@ done
 - Global exception handling
 - FluentValidation across layers
 - Result pattern for flow control
+- Migrations applied and data seeded automatically for simplicity
 
 ## Testing
 
