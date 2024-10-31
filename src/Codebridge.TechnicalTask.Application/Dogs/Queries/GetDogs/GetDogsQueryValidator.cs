@@ -18,8 +18,8 @@ public class GetDogsQueryValidator : AbstractValidator<GetDogsQuery>
         When(x => x.SortParameters != null, () =>
         {
             RuleFor(x => x.SortParameters!.PropertyName)
-                .Must(attr => ValidSortProperties.Contains(attr.ToLowerSnakeCase()))
-                .WithErrorCode(DomainErrorCodes.Dog.Validation.InvalidSortProperty)
+                .Must(attr => ValidSortProperties.Contains(attr.ToLower()))
+                .WithErrorCode(DomainErrorCodes.Dog.Validation.InvalidSortAttribute)
                 .WithMessage("Invalid sort attribute");
         });
     }

@@ -15,7 +15,7 @@ public static class SortOrderExtensions
 
     public static bool TryParse(string str, out SortOrder? sortOrder)
     {
-        switch (str.ToLower())
+        switch (str.ToLower().Trim())
         {
             case "asc":
                 sortOrder = SortOrder.Asc;

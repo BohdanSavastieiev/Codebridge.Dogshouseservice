@@ -8,6 +8,7 @@ using Codebridge.TechnicalTask.Application.Common.Models;
 using Codebridge.TechnicalTask.Application.Dogs.Commands.CreateDog;
 using Codebridge.TechnicalTask.Application.Dogs.Queries.GetDog;
 using Codebridge.TechnicalTask.Application.Dogs.Queries.GetDogs;
+using Codebridge.TechnicalTask.Domain.Shared.Models;
 using MediatR;
 
 namespace Codebridge.TechnicalTask.API.Endpoints;
@@ -38,27 +39,35 @@ public class DogsEndpoints : IEndpointDefinition
        var paginationParameters = new PaginationParameters(
             pageSize: pagination.PageSize,
             pageNumber: pagination.PageNumber);
-
-        var sortParameters = !string.IsNullOrEmpty(sort.Attribute)
-            ? new SortParameters(sort.Attribute, sort.Order)
-            : default;
+       
+       SortParameters? sortParameters = null;
+       if (!string.IsNullOrWhiteSpace(sort.Attribute))
+       {
+           var sortResult = SortParameters.Create(sort.Attribute!, sort.Order);
+           if (sortResult.IsFailure)
+           {
+               throw new InvalidOperationException("Invalid sort state.");
+           }
+           
+           sortParameters = sortResult.Value;
+       }
         
-        var query = new GetDogsQuery(paginationParameters, sortParameters);
-        var result = await sender.Send(query, cancellationToken);
+       var query = new GetDogsQuery(paginationParameters, sortParameters);
+       var result = await sender.Send(query, cancellationToken);
 
-        if (!result.IsSuccess)
-        {
-            return result.ToProblemDetails();
-        }
+       if (!result.IsSuccess)
+       {
+           return result.ToProblemDetails();
+       }
         
-        var metadata = new PaginationMetadata(
-            result.Value.PageNumber,
-            result.Value.PageSize,
-            result.Value.TotalPages,
-            result.Value.TotalCount);
+       var metadata = new PaginationMetadata(
+           result.Value.PageNumber,
+           result.Value.PageSize,
+           result.Value.TotalPages,
+           result.Value.TotalCount);
 
-        return TypedResults.Ok(result.Value.Items)
-            .AddPaginationHeaders(metadata);
+       return TypedResults.Ok(result.Value.Items)
+           .AddPaginationHeaders(metadata);
     }
 
     private static async Task<IResult> GetDog(

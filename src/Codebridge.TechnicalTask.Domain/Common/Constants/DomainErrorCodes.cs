@@ -10,7 +10,7 @@ public static class DomainErrorCodes
             public const string InvalidColorLength = "Dog.InvalidColorLength";
             public const string InvalidTailLength = "Dog.InvalidTailLength";
             public const string InvalidWeight = "Dog.InvalidWeight";
-            public const string InvalidSortProperty = "Dog.InvalidSortProperty";
+            public const string InvalidSortAttribute = "Dog.InvalidSortAttribute";
         }
 
         public static class Common

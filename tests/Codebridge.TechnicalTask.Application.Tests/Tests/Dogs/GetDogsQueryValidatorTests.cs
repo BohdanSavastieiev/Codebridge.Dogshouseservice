@@ -18,14 +18,12 @@ public class GetDogsQueryValidatorTests
     [Theory]
     [InlineData("name")]
     [InlineData("tail_length")]
-    [InlineData("weight")]
-    [InlineData("color")]
     public void Validate_ShouldPassForValidSortProperties(string propertyName)
     {
         // Arrange
         var paginationParams = new PaginationParameters();
-        var sortParams = new SortParameters(propertyName);
-        var query = new GetDogsQuery(paginationParams, sortParams);
+        var sortResult = SortParameters.Create(propertyName);
+        var query = new GetDogsQuery(paginationParams, sortResult.Value);
 
         // Act
         var result = _validator.TestValidate(query);
@@ -36,20 +34,19 @@ public class GetDogsQueryValidatorTests
 
     [Theory]
     [InlineData("invalid_property")]
-    [InlineData("")]
-    public void Validate_ShouldFailForInvalidSortProperties(string propertyName)
+    public void Validate_WithValidStringButNoMatchingProperty_ShouldFail(string propertyName)
     {
         // Arrange
         var paginationParams = new PaginationParameters();
-        var sortParams = new SortParameters(propertyName);
-        var query = new GetDogsQuery(paginationParams, sortParams);
+        var sortResult = SortParameters.Create(propertyName);
+        var query = new GetDogsQuery(paginationParams, sortResult.Value);
 
         // Act
         var result = _validator.TestValidate(query);
 
         // Assert
         result.ShouldHaveValidationErrorFor(x => x.SortParameters!.PropertyName)
-            .WithErrorCode(DomainErrorCodes.Dog.Validation.InvalidSortProperty);
+            .WithErrorCode(DomainErrorCodes.Dog.Validation.InvalidSortAttribute);
     }
 
     [Fact]

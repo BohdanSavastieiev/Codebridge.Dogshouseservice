@@ -18,7 +18,7 @@ public class DogsSpecification : BaseSpecification<Dog>
         {
             var isDescending = request.SortParameters.Order == SortOrder.Desc;
             
-            switch (request.SortParameters.PropertyName.ToLowerSnakeCase())
+            switch (request.SortParameters.PropertyName.ToLower())
             {
                 case "name":
                     if (isDescending)

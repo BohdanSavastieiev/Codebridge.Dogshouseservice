@@ -1,6 +1,7 @@
 using Codebridge.TechnicalTask.API.Common.Constants;
 using Codebridge.TechnicalTask.API.Models.Common;
 using Codebridge.TechnicalTask.API.Validators.Common;
+using Codebridge.TechnicalTask.Application.Common.Constants;
 using FluentValidation.TestHelper;
 
 namespace Codebridge.TechnicalTask.API.Tests.Tests.Validators;
@@ -44,7 +45,7 @@ public class PaginationRequestValidatorTests
 
         // Assert
         result.ShouldHaveValidationErrorFor(x => x.PageSize)
-            .WithErrorCode(ApiErrorCodes.Pagination.InvalidPageSize);
+            .WithErrorCode(ApplicationErrorCodes.Pagination.InvalidPageSize);
     }
     
     [Theory]
@@ -60,7 +61,7 @@ public class PaginationRequestValidatorTests
 
         // Assert
         result.ShouldHaveValidationErrorFor(x => x.PageNumber)
-            .WithErrorCode(ApiErrorCodes.Pagination.InvalidPageNumber);
+            .WithErrorCode(ApplicationErrorCodes.Pagination.InvalidPageNumber);
     }
 
     [Fact]

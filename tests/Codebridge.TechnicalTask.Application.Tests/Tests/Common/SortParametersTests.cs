@@ -8,33 +8,40 @@ public class SortParametersTests
 {
     [Theory]
     [InlineData("name", "asc", SortOrder.Asc)]
-    [InlineData("name", "desc", SortOrder.Desc)]
+    [InlineData("name ", "desc", SortOrder.Desc)]
     [InlineData("name", "DESC", SortOrder.Desc)]
     [InlineData("name", null, SortOrder.Asc)]
-    public void Constructor_InitializesCorrectly(
+    [InlineData(" tail_length", "", SortOrder.Asc)]
+    [InlineData("tail_length", " ", SortOrder.Asc)]
+    public void FactoryMethod_WithValidData_ReturnsSuccess(
         string propertyName, 
         string? order, 
         SortOrder expectedOrder)
     {
         // Act
-        var parameters = new SortParameters(propertyName, order);
+        var result = SortParameters.Create(propertyName, order);
 
         // Assert
-        parameters.PropertyName.Should().Be(propertyName);
-        parameters.Order.Should().Be(expectedOrder);
+        result.IsSuccess.Should().BeTrue();
+        result.Value.PropertyName.Should().Be(propertyName.Trim());
+        result.Value.Order.Should().Be(expectedOrder);
     }
     
     [Theory]
-    [InlineData("name", "")]
+    [InlineData("", "asc")]
+    [InlineData(" ", "desc")]
     [InlineData("name", "invalid")]
-    public void Constructor_ShouldThrowException_WhenStringSortOrderIsNotNullAndInvalid(
+    [InlineData("name", " invalid")]
+    [InlineData("", "")]
+    [InlineData("", " ")]
+    public void FactoryMethod_WithInvalidData_ReturnsFailure(
         string propertyName,
         string? order)
     {
         // Act
-        var action = () => new SortParameters(propertyName, order);
+        var result = SortParameters.Create(propertyName, order);
 
         // Assert
-        action.Should().Throw<InvalidOperationException>();
+        result.IsFailure.Should().BeTrue();
     }
 }

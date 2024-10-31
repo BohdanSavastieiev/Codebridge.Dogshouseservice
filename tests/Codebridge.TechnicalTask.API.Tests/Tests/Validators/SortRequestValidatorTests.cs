@@ -1,6 +1,6 @@
-using Codebridge.TechnicalTask.API.Common.Constants;
 using Codebridge.TechnicalTask.API.Models.Common;
 using Codebridge.TechnicalTask.API.Validators.Common;
+using Codebridge.TechnicalTask.Application.Common.Constants;
 using FluentValidation.TestHelper;
 
 namespace Codebridge.TechnicalTask.API.Tests.Tests.Validators;
@@ -21,6 +21,10 @@ public class SortRequestValidatorTests
     [InlineData("name", "desc")]
     [InlineData("name", "ASC")]
     [InlineData("name", "DESC")]
+    [InlineData("tail_length", "")]
+    [InlineData("tail_length", " ")]
+    [InlineData("", " ")]
+    [InlineData(" ", " ")]
     public void Validate_ShouldPass_WhenValuesAreValid(string? attribute, string? order)
     {
         // Arrange
@@ -47,15 +51,13 @@ public class SortRequestValidatorTests
 
         // Assert
         result.ShouldHaveValidationErrorFor(x => x.Attribute)
-            .WithErrorCode(ApiErrorCodes.Sort.AttributeRequired);
+            .WithErrorCode(ApplicationErrorCodes.Sort.AttributeRequired);
     }
 
     [Theory]
     [InlineData("random")]
     [InlineData("ascending")]
     [InlineData("descending")]
-    [InlineData("")]
-    [InlineData(" ")]
     public void Validate_ShouldHaveError_WhenOrderIsInvalid(string order)
     {
         // Arrange
@@ -66,6 +68,6 @@ public class SortRequestValidatorTests
 
         // Assert
         result.ShouldHaveValidationErrorFor(x => x.Order)
-            .WithErrorCode(ApiErrorCodes.Sort.InvalidOrder);
+            .WithErrorCode(ApplicationErrorCodes.Sort.InvalidOrder);
     }
 }
