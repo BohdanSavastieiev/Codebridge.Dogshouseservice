@@ -8,7 +8,6 @@ using Codebridge.TechnicalTask.Application.Common.Models;
 using Codebridge.TechnicalTask.Application.Dogs.Commands.CreateDog;
 using Codebridge.TechnicalTask.Application.Dogs.Queries.GetDog;
 using Codebridge.TechnicalTask.Application.Dogs.Queries.GetDogs;
-using Codebridge.TechnicalTask.Domain.Shared.Models;
 using MediatR;
 
 namespace Codebridge.TechnicalTask.API.Endpoints;
@@ -55,16 +54,16 @@ public class DogsEndpoints : IEndpointDefinition
        var query = new GetDogsQuery(paginationParameters, sortParameters);
        var result = await sender.Send(query, cancellationToken);
 
-       if (!result.IsSuccess)
+       if (result.IsFailure)
        {
            return result.ToProblemDetails();
        }
         
        var metadata = new PaginationMetadata(
-           result.Value.PageNumber,
-           result.Value.PageSize,
-           result.Value.TotalPages,
-           result.Value.TotalCount);
+           PageNumber: result.Value.PageNumber,
+           PageSize: result.Value.PageSize,
+           TotalPages: result.Value.TotalPages,
+           TotalCount: result.Value.TotalCount);
 
        return TypedResults.Ok(result.Value.Items)
            .AddPaginationHeaders(metadata);
@@ -97,9 +96,9 @@ public class DogsEndpoints : IEndpointDefinition
             return result.ToProblemDetails();
 
         var url = linkGenerator.GetUriByName(
-            httpContext,
-            nameof(GetDog),
-            new { name = result.Value.Name })!;
+            httpContext: httpContext,
+            endpointName: nameof(GetDog),
+            values: new { name = result.Value.Name })!;
             
         return Results.Created(url, result.Value);
     }
