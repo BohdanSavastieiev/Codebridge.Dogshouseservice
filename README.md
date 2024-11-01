@@ -73,7 +73,9 @@ done
 - Unified Problem Details factory for standardized API responses
 - Specification pattern for building database queries (pagination and sorting)
 - Global exception handling
-- FluentValidation across layers
+- FluentValidation across layers in interaction with:
+  - Filters in API layer
+  - Pipeline behavior in Application layer
 - Result pattern for flow control
 
 ## Testing
