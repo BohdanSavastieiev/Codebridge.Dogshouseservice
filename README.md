@@ -15,7 +15,7 @@ A RESTful API for managing dogs data, built with Clean Architecture principles a
 2. Add connection string with **YOUR** credentials to `appsettings.json`:
   ```json
   "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER;Database=DogsHouseDB;User Id=YOUR_USERNAME;Password=YOUR_PASSWORD;TrustServerCertificate=True"
+    "DefaultConnection": "Server=YOUR_SERVER;Database=dogshouse_db;User Id=YOUR_USERNAME;Password=YOUR_PASSWORD;TrustServerCertificate=True"
   }
 ```
 3. Run the app using http or https profile (migrations applied and data seeded automatically)
